@@ -1,14 +1,14 @@
 'use strict';
-var Alexa = require("alexa-sdk");
+const Alexa = require("alexa-sdk");
 
 exports.handler = function(event, context, callback) {
-    var alexa = Alexa.handler(event, context);
+    const alexa = Alexa.handler(event, context);
     alexa.registerHandlers(handlers);
     alexa.execute();
 };
 
-var sessionStates = {};
-var state = {
+const sessionStates = {};
+const state = {
     initial: undefined,
     launch: 1,
     askIfPatientPregnant: 2,
@@ -24,8 +24,6 @@ function isState(stateId, context) {
     return sessionStates[context.event.session.sessionId] === stateId;
 }
 
-
-
 var handlers = {
     'LaunchRequest': function () {
         this.emit('NeedConsultationAboutPatientIntent');
@@ -40,7 +38,7 @@ var handlers = {
             return setState(state.askIfPatientPregnant, this);
         }
         if (isState(state.askIfPatientPregnant, this)) {
-            let message = `Arrange a glucose tolerance test
+            const message = `Arrange a glucose tolerance test
 Positive values
 Glucose mmol/l
 Fasting > 5.1
@@ -51,7 +49,7 @@ Refer to JR diabetes service if positive`;
             return setState(state.initial, this);
         }
         if (isState(state.askIfPatientHasSymptoms, this)) {
-            let message = `Check Random glucose.
+            const message = `Check Random glucose.
 • If > 11.1 mmol/l diagnose diabetes
 • If <11.1 mmol/l and symptoms for > 2 months
 an HbA1c can be checked.
@@ -76,7 +74,7 @@ symptoms`;
             return setState(state.askIfPatientHasSymptoms, this);
         }
         if (isState(state.askIfPatientHasSymptoms, this)) {
-            let message = `Check fasting blood glucose or HbA1c
+            const message = `Check fasting blood glucose or HbA1c
 • Fasting glucose > 7.0 mmol/l suggests
 diabetes. Repeat to confirm
 • HbA1c > 48mmol/l (6.5%) suggests

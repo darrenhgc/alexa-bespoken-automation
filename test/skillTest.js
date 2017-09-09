@@ -1,8 +1,8 @@
-var assert = require('assert');
-var bst = require('bespoken-tools');
-var _ = require('lodash');
-var yaml = require('js-yaml');
-var fs   = require('fs');
+const assert = require('assert');
+const bst = require('bespoken-tools');
+const _ = require('lodash');
+const yaml = require('js-yaml');
+const fs   = require('fs');
 
 try {
   var tests = yaml.safeLoad(fs.readFileSync('./test/dialogs.yml', 'utf8'));
@@ -13,8 +13,8 @@ try {
 describe('Skill test', function () {
   _.each(tests, (test) => {
     describe(test.scenario, () => {
-      var server = null;
-      var alexa = null;
+      let server = null;
+      let alexa = null;
     
       before(function (done) {
         server = new bst.LambdaServer('./src/index.js', 10000, true);
