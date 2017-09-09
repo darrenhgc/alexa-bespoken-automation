@@ -1,0 +1,51 @@
+---
+- scenario: first patient
+  lunchSpeech: Hi, do you suspect this patient has diabetes?
+  dialog:
+  - userSpeech: 'Yes'
+    alexaSpeech: Is the patient pregnant?
+  - userSpeech: 'Yes'
+    alexaSpeech: |-
+      Arrange a glucose tolerance test
+      Positive values
+      Glucose mmol/l
+      Fasting > 5.1
+      1 hour > 10.0
+      2 hour > 8.5
+      Refer to JR diabetes service if positive
+- scenario: second patient
+  lunchSpeech: Hi, do you suspect this patient has diabetes?
+  dialog:
+  - userSpeech: 'Yes'
+    alexaSpeech: Is the patient pregnant?
+  - userSpeech: 'No'
+    alexaSpeech: Symptoms attributable to diabetes e.g. polyuria, polydipsia, weight
+      loss?
+  - userSpeech: 'Yes'
+    alexaSpeech: |-
+      Check Random glucose.
+      • If > 11.1 mmol/l diagnose diabetes
+      • If <11.1 mmol/l and symptoms for > 2 months
+      an HbA1c can be checked.
+      • If HbA1c > 48 mmol/l (6.5%) this suggests
+      diabetes. Repeat to confirm.
+      • If <48 mmol/l (6.5%) seek alternative
+      explanation for symptoms.
+      • If random glucose <11.1 mmol/l and symptoms
+      for <2 months options are as in box for no
+      symptoms
+- scenario: third patient
+  lunchSpeech: Hi, do you suspect this patient has diabetes?
+  dialog:
+  - userSpeech: 'Yes'
+    alexaSpeech: Is the patient pregnant?
+  - userSpeech: 'No'
+    alexaSpeech: Symptoms attributable to diabetes e.g. polyuria, polydipsia, weight
+      loss?
+  - userSpeech: 'No'
+    alexaSpeech: |-
+      Check fasting blood glucose or HbA1c
+      • Fasting glucose > 7.0 mmol/l suggests
+      diabetes. Repeat to confirm
+      • HbA1c > 48mmol/l (6.5%) suggests
+      diabetes. Repeat to confirm

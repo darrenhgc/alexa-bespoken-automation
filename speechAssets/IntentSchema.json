@@ -1,7 +1,13 @@
 {
   "intents": [
     {
-      "intent": "HelloWorldIntent"
+      "intent": "AMAZON.YesIntent"
+    },
+    {
+      "intent": "AMAZON.NoIntent"
+    },
+    {
+      "intent": "NeedConsultationAboutPatientIntent"
     }
   ]
 }

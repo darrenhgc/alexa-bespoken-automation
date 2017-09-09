@@ -1,3 +1,4 @@
-HelloWorldIntent hello
-HelloWorldIntent say hello
-HelloWorldIntent say hello world
+NeedConsultationAboutPatientIntent need your advice
+NeedConsultationAboutPatientIntent need advice about this patient
+AMAZON.YesIntent yes
+AMAZON.NoIntent no
